@@ -81,4 +81,815 @@
             font-size: 1.1rem;
             font-weight: 800;
             letter-spacing: 3.5px;
-            color: var
+            color: var(--base-blue);
+            display: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--gold-soft);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.7rem, 5vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+
+        /* Game Center: Vikings vs 49ers */
+        .game-center {
+            background: linear-gradient(165deg, rgba(13, 28, 52, 0.92), rgba(7, 17, 34, 0.96));
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            padding: 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .gc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 18px;
+        }
+
+        .gc-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+        }
+
+        .live-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--live-red);
+            box-shadow: 0 0 10px var(--live-red);
+            animation: pulseLive 1.4s infinite;
+            display: none;
+        }
+
+        .live-dot.active { display: inline-block; }
+
+        @keyframes pulseLive {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+        }
+
+        .gc-refresh {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .scoreboard {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .team-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .team-logo { width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45)); }
+        .team-name { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; }
+        .team-record { font-size: 0.75rem; color: var(--text-muted); }
+
+        .score-center { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .score-numbers {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .score-sep { color: var(--gold); font-size: 1.5rem; opacity: 0.7; }
+        .game-clock {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--base-blue);
+            background: rgba(0, 136, 232, 0.12);
+            padding: 4px 12px;
+            border-radius: 999px;
+        }
+
+        .quarters-wrap { overflow-x: auto; margin-bottom: 18px; }
+        .quarters-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .quarters-table th, .quarters-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .quarters-table th { color: var(--text-muted); font-size: 0.74rem; text-transform: uppercase; }
+        .quarters-table td:first-child, .quarters-table th:first-child { text-align: left; padding-left: 14px; font-weight: 600; color: #fff; }
+        .quarters-table td:last-child { font-weight: 700; color: var(--gold-soft); }
+
+        .leaders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+        .leader-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .leader-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-soft); font-weight: 600; }
+        .leader-name { font-size: 0.92rem; font-weight: 600; color: #fff; }
+        .leader-stat { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Barra de Galería y Botón Subir */
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .section-head h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .head-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .photo-counter {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-upload-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--gold), #b58d24);
+            color: #050d1a;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.86rem;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-upload-trigger:hover { transform: translateY(-2px); }
+
+        /* Cuadrícula de fotos */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--navy-card);
+            border: 1px solid var(--border-subtle);
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .photo-card:hover { transform: translateY(-4px); border-color: rgba(212, 175, 55, 0.55); }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 48px 20px;
+            border-radius: 20px;
+            background: rgba(11, 25, 46, 0.65);
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            color: var(--text-muted);
+        }
+
+        .empty-state h3 { color: #fff; font-family: 'Montserrat', sans-serif; margin-bottom: 8px; }
+
+        /* Modal de Subida */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(4, 10, 20, 0.88);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.open { display: flex; }
+
+        .upload-modal {
+            background: #0d1d36;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 22px;
+            max-width: 440px;
+            width: 100%;
+            padding: 26px 22px;
+            text-align: center;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .upload-modal h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 6px; }
+        .upload-modal p { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 18px; }
+
+        .drop-zone {
+            display: block;
+            border: 1.5px dashed rgba(0, 136, 232, 0.6);
+            border-radius: 16px;
+            padding: 26px 16px;
+            background: rgba(0, 136, 232, 0.06);
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: background 0.2s ease;
+        }
+
+        .drop-zone:hover { background: rgba(0, 136, 232, 0.12); }
+        .drop-zone input { display: none; }
+        .file-preview-text { font-size: 0.88rem; color: #cbd5e1; }
+
+        .upload-status {
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+            min-height: 20px;
+            color: var(--gold-soft);
+        }
+
+        .modal-btns { display: flex; gap: 10px; justify-content: center; }
+
+        .btn-cancel {
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: transparent;
+            color: #cbd5e1;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1001;
+            background: rgba(4, 10, 20, 0.96);
+            backdrop-filter: blur(12px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.open { display: flex; }
+
+        .lb-close {
+            position: absolute;
+            top: 18px; right: 20px;
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .lb-img-wrap { max-width: 92vw; max-height: 72vh; display: flex; align-items: center; justify-content: center; }
+        .lb-img-wrap img { max-width: 100%; max-height: 72vh; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.14); }
+
+        .lb-nav {
+            position: fixed;
+            top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(5, 13, 26, 0.8);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        .lb-prev { left: 14px; }
+        .lb-next { right: 14px; }
+
+        .lb-actions { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 11px 22px; border-radius: 999px;
+            font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; border: none;
+        }
+        .btn-download { background: linear-gradient(135deg, var(--gold), #b58d24); color: #050d1a; }
+        .btn-share { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 44px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 0.84rem;
+        }
+        .footer-note { margin-bottom: 16px; line-height: 1.5; }
+        .btn-powered {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.04);
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.4px;
+            transition: all 0.2s ease;
+        }
+        .btn-powered strong { color: var(--gold-soft); }
+        .btn-powered:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(212, 175, 55, 0.45); }
+
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .team-logo { width: 46px; height: 46px; }
+            .team-name { font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado con Logo Banco BASE -->
+        <header class="hero">
+            <div class="logo-wrap">
+                <img src="logo-base.png" alt="Banco BASE" class="base-logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+                <div id="logo-fallback" class="logo-fallback">BANCO BASE</div>
+            </div>
+            <div class="badge">🏈 Experiencia VIP · Acceso NFC</div>
+            <h1>Vikings vs. 49ers · México 2026</h1>
+            <p>
+                Bienvenido a la experiencia exclusiva de Banco BASE. Sigue el partido en tiempo real, sube tus mejores momentos y descarga en alta calidad las fotografías oficiales del evento.
+            </p>
+        </header>
+
+        <!-- Marcador y Estadísticas en Tiempo Real -->
+        <section class="game-center">
+            <div class="gc-header">
+                <div class="gc-status">
+                    <span class="live-dot" id="live-dot"></span>
+                    <span id="gc-status-text">NFL México 2026 · Vikings vs. 49ers</span>
+                </div>
+                <button class="gc-refresh" id="gc-refresh">↻ Actualizar</button>
+            </div>
+
+            <div class="scoreboard">
+                <div class="team-col">
+                    <img id="away-logo" class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt="Vikings">
+                    <div class="team-name" id="away-name">Vikings</div>
+                    <div class="team-record" id="away-record">Minnesota</div>
+                </div>
+
+                <div class="score-center">
+                    <div class="score-numbers">
+                        <span id="away-score">0</span>
+                        <span class="score-sep">-</span>
+                        <span id="home-score">0</span>
+                    </div>
+                    <div class="game-clock" id="game-clock">CDMX · 2026</div>
+                </div>
+
+                <div class="team-col">
+                    <img id="home-logo" class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="49ers">
+                    <div class="team-name" id="home-name">49ers</div>
+                    <div class="team-record" id="home-record">San Francisco</div>
+                </div>
+            </div>
+
+            <div class="quarters-wrap">
+                <table class="quarters-table">
+                    <thead>
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quarters-body">
+                        <tr><td>MIN</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0</td></tr>
+                        <tr><td>SF</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="leaders-grid" id="leaders-grid"></div>
+        </section>
+
+        <!-- Galería Oficial Interactiva -->
+        <div class="section-head">
+            <h2>Galería del Evento</h2>
+            <div class="head-actions">
+                <span class="photo-counter"><strong id="photo-count">0</strong> fotos</span>
+                <button class="btn-upload-trigger" id="open-upload-btn">📸 Subir Fotos</button>
+            </div>
+        </div>
+
+        <main id="gallery" class="gallery-grid">
+            <div class="empty-state">
+                <h3>Cargando galería...</h3>
+                <p>Conectando con el álbum del evento.</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-note">
+                Banco BASE · Experiencia Exclusiva NFL México 2026.<br>
+                Toca cualquier fotografía para verla en pantalla completa y descargarla a tu dispositivo.
+            </p>
+            <a href="https://five-friends-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-powered">
+                Powered by <strong>Five Friends</strong>
+            </a>
+        </footer>
+    </div>
+
+    <!-- Modal para Subir Fotos Directo -->
+    <div class="modal-backdrop" id="upload-modal">
+        <div class="upload-modal">
+            <h3>Subir Fotos al Álbum</h3>
+            <p>Selecciona una o varias fotos desde tu celular para agregarlas a la galería oficial del evento.</p>
+
+            <label class="drop-zone" for="file-input">
+                <input type="file" id="file-input" accept="image/*" multiple>
+                <div class="file-preview-text" id="file-preview-text">📁 Toca aquí para elegir tus fotos</div>
+            </label>
+
+            <div class="upload-status" id="upload-status"></div>
+
+            <div class="modal-btns">
+                <button class="btn-cancel" id="close-upload-btn">Cancelar</button>
+                <button class="btn-upload-trigger" id="confirm-upload-btn">Subir ahora</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-close" id="lb-close" aria-label="Cerrar">✕</button>
+        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
+        <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">›</button>
+
+        <div class="lb-img-wrap">
+            <img id="lb-img" src="" alt="Fotografía del evento">
+        </div>
+
+        <div class="lb-actions">
+            <button id="lb-download" class="btn-action btn-download">⬇ Descargar Foto</button>
+            <button id="lb-share" class="btn-action btn-share">↗ Compartir</button>
+        </div>
+    </div>
+
+    <script>
+        /* ==============================================================
+           CONFIGURACIÓN DE SUPABASE (LISTA Y CONECTADA)
+        ============================================================== */
+        const SUPABASE_URL = "https://sirzpsrublygrfzupzoi.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_YTlcXsZo-lnjWw5E0axQGg_Y092_nGx";
+        const BUCKET_NAME = "fotos-nfl";
+
+        const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        /* ==============================================================
+           1. MARCADOR EN TIEMPO REAL: VIKINGS (MIN) VS 49ERS (SF)
+        ============================================================== */
+        async function fetchLiveScore() {
+            const statusText = document.getElementById('gc-status-text');
+            const liveDot = document.getElementById('live-dot');
+
+            try {
+                const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                const data = await res.json();
+                const events = data.events || [];
+
+                let game = events.find(ev => {
+                    const teams = ev.competitions?.[0]?.competitors?.map(c => c.team?.abbreviation?.toUpperCase()) || [];
+                    return teams.includes('MIN') && teams.includes('SF');
+                });
+
+                if (!game) {
+                    statusText.textContent = "Próximo Partido · Vikings vs. 49ers";
+                    return;
+                }
+
+                const comp = game.competitions[0];
+                const home = comp.competitors.find(c => c.homeAway === 'home');
+                const away = comp.competitors.find(c => c.homeAway === 'away');
+                const state = comp.status?.type?.state;
+                const detail = comp.status?.type?.shortDetail || 'Programado';
+
+                if (state === 'in') {
+                    liveDot.classList.add('active');
+                    statusText.textContent = "En Vivo · Estadísticas Oficiales";
+                } else if (state === 'post') {
+                    liveDot.classList.remove('active');
+                    statusText.textContent = "Marcador Final · NFL México";
+                } else {
+                    liveDot.classList.remove('active');
+                    statusText.textContent = "Previo del Partido · NFL México";
+                }
+
+                document.getElementById('away-logo').src = away.team.logo;
+                document.getElementById('away-name').textContent = away.team.shortDisplayName;
+                document.getElementById('away-record').textContent = away.records?.[0]?.summary || '';
+                document.getElementById('away-score').textContent = away.score || '0';
+
+                document.getElementById('home-logo').src = home.team.logo;
+                document.getElementById('home-name').textContent = home.team.shortDisplayName;
+                document.getElementById('home-record').textContent = home.records?.[0]?.summary || '';
+                document.getElementById('home-score').textContent = home.score || '0';
+                document.getElementById('game-clock').textContent = detail;
+
+                const getQ = (team, idx) => team.linescores?.[idx]?.value ?? '-';
+                document.getElementById('quarters-body').innerHTML = `
+                    <tr>
+                        <td>${away.team.abbreviation}</td>
+                        <td>${getQ(away, 0)}</td><td>${getQ(away, 1)}</td><td>${getQ(away, 2)}</td><td>${getQ(away, 3)}</td>
+                        <td>${away.score || '0'}</td>
+                    </tr>
+                    <tr>
+                        <td>${home.team.abbreviation}</td>
+                        <td>${getQ(home, 0)}</td><td>${getQ(home, 1)}</td><td>${getQ(home, 2)}</td><td>${getQ(home, 3)}</td>
+                        <td>${home.score || '0'}</td>
+                    </tr>
+                `;
+
+                const leadersGrid = document.getElementById('leaders-grid');
+                const catNames = {
+                    passingYards: 'Líder en Pase',
+                    rushingYards: 'Líder en Carrera',
+                    receivingYards: 'Líder en Recepción'
+                };
+                leadersGrid.innerHTML = '';
+                (comp.leaders || []).slice(0, 3).forEach(cat => {
+                    const top = cat.leaders?.[0];
+                    if (!top) return;
+                    leadersGrid.innerHTML += `
+                        <div class="leader-card">
+                            <span class="leader-cat">${catNames[cat.name] || cat.displayName}</span>
+                            <span class="leader-name">${top.athlete?.shortName || 'Jugador'}</span>
+                            <span class="leader-stat">${top.displayValue || ''}</span>
+                        </div>
+                    `;
+                });
+            } catch (err) {
+                statusText.textContent = "Vikings vs. 49ers · NFL México 2026";
+            }
+        }
+
+        document.getElementById('gc-refresh').addEventListener('click', fetchLiveScore);
+        fetchLiveScore();
+        setInterval(fetchLiveScore, 45000);
+
+        /* ==============================================================
+           2. GALERÍA Y SUBIDA DIRECTA CON SUPABASE STORAGE
+        ============================================================== */
+        const galleryEl = document.getElementById('gallery');
+        const photoCountEl = document.getElementById('photo-count');
+        let photosList = [];
+        let currentIndex = 0;
+
+        async function loadGallery() {
+            const { data, error } = await sb.storage.from(BUCKET_NAME).list('', {
+                limit: 200,
+                sortBy: { column: 'created_at', order: 'desc' }
+            });
+
+            if (error) {
+                galleryEl.innerHTML = `<div class="empty-state"><h3>Error al cargar</h3><p>Revisa que el bucket "${BUCKET_NAME}" exista, sea público y tenga las políticas SQL activas.</p></div>`;
+                return;
+            }
+
+            const validFiles = (data || []).filter(f => f.name && !f.name.startsWith('.'));
+            photosList = validFiles.map(file => {
+                const { data: urlData } = sb.storage.from(BUCKET_NAME).getPublicUrl(file.name);
+                return { name: file.name, url: urlData.publicUrl };
+            });
+
+            photoCountEl.textContent = photosList.length;
+
+            if (photosList.length === 0) {
+                galleryEl.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Aún no hay fotografías</h3>
+                        <p>Sé el primero en subir un recuerdo tocando el botón "Subir Fotos".</p>
+                    </div>
+                `;
+                return;
+            }
+
+            galleryEl.innerHTML = '';
+            photosList.forEach((photo, idx) => {
+                const card = document.createElement('div');
+                card.className = 'photo-card';
+                card.innerHTML = `<img src="${photo.url}" alt="Foto NFL México 2026" loading="lazy">`;
+                card.addEventListener('click', () => openLightbox(idx));
+                galleryEl.appendChild(card);
+            });
+        }
+
+        // Modal de subida
+        const uploadModal = document.getElementById('upload-modal');
+        const fileInput = document.getElementById('file-input');
+        const filePreviewText = document.getElementById('file-preview-text');
+        const uploadStatus = document.getElementById('upload-status');
+        const confirmUploadBtn = document.getElementById('confirm-upload-btn');
+
+        document.getElementById('open-upload-btn').addEventListener('click', () => {
+            uploadStatus.textContent = '';
+            fileInput.value = '';
+            filePreviewText.textContent = '📁 Toca aquí para elegir tus fotos';
+            uploadModal.classList.add('open');
+        });
+
+        document.getElementById('close-upload-btn').addEventListener('click', () => {
+            uploadModal.classList.remove('open');
+        });
+
+        fileInput.addEventListener('change', () => {
+            const count = fileInput.files.length;
+            filePreviewText.textContent = count > 0
+                ? `✓ ${count} foto(s) seleccionada(s)`
+                : '📁 Toca aquí para elegir tus fotos';
+        });
+
+        confirmUploadBtn.addEventListener('click', async () => {
+            const files = fileInput.files;
+            if (!files.length) {
+                uploadStatus.textContent = 'Selecciona al menos una foto primero.';
+                return;
+            }
+
+            confirmUploadBtn.disabled = true;
+            confirmUploadBtn.textContent = 'Subiendo...';
+
+            let uploaded = 0;
+            for (const file of files) {
+                uploadStatus.textContent = `Subiendo ${uploaded + 1} de ${files.length}...`;
+                const ext = file.name.split('.').pop() || 'jpg';
+                const fileName = `nfl-${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
+                const { error } = await sb.storage.from(BUCKET_NAME).upload(fileName, file, {
+                    cacheControl: '3600',
+                    upsert: false
+                });
+                if (!error) uploaded++;
+            }
+
+            confirmUploadBtn.disabled = false;
+            confirmUploadBtn.textContent = 'Subir ahora';
+
+            if (uploaded > 0) {
+                uploadStatus.textContent = `✓ ¡${uploaded} foto(s) agregada(s) al álbum!`;
+                await loadGallery();
+                setTimeout(() => uploadModal.classList.remove('open'), 1000);
+            } else {
+                uploadStatus.textContent = 'No se pudo subir. Revisa las políticas del bucket en Supabase.';
+            }
+        });
+
+        /* ==============================================================
+           3. VISOR LIGHTBOX + DESCARGA REAL EN CELULAR
+        ============================================================== */
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbDownload = document.getElementById('lb-download');
+        const lbShare = document.getElementById('lb-share');
+
+        function openLightbox(idx) {
+            currentIndex = idx;
+            lbImg.src = photosList[currentIndex].url;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.getElementById('lb-prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + photosList.length) % photosList.length;
+            lbImg.src = photosList[currentIndex].url;
+        });
+        document.getElementById('lb-next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % photosList.length;
+            lbImg.src = photosList[currentIndex].url;
+        });
+
+        lbDownload.addEventListener('click', async () => {
+            const photo = photosList[currentIndex];
+            lbDownload.textContent = 'Descargando...';
+            try {
+                const res = await fetch(photo.url);
+                const blob = await res.blob();
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = `BancoBASE-NFL-${currentIndex + 1}.jpg`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(blobUrl);
+            } catch {
+                window.open(photo.url, '_blank');
+            }
+            lbDownload.textContent = '⬇ Descargar Foto';
+        });
+
+        lbShare.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Banco BASE · Vikings vs 49ers México 2026',
+                        url: window.location.href
+                    });
+                } catch {}
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                lbShare.textContent = '✓ Link copiado';
+                setTimeout(() => { lbShare.textContent = '↗ Compartir'; }, 2000);
+            }
+        });
+
+        loadGallery();
+    </script>
+</body>
+</html>
