@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco BASE | Vikings vs 49ers · NFL México 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --navy-bg: #050d1a;
+            --navy-card: #0b192e;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --base-blue: #0088e8;
+            --gold: #d4af37;
+            --gold-soft: #f3d98b;
+            --live-red: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--navy-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 12% 0%, rgba(0, 136, 232, 0.22), transparent 40%),
+                radial-gradient(circle at 88% 8%, rgba(212, 175, 55, 0.14), transparent 36%),
+                radial-gradient(circle at 50% 100%, rgba(0, 136, 232, 0.1), transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 24px 16px 48px;
+        }
+
+        /* Header Institucional con Logo */
+        .hero {
+            text-align: center;
+            padding: 32px 20px 28px;
+            border-radius: 24px;
+            background: linear-gradient(160deg, rgba(16, 35, 66, 0.88), rgba(7, 17, 34, 0.94));
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 15%; right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--base-blue), transparent);
+        }
+
+        .logo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .base-logo {
+            max-height: 46px;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        .logo-fallback {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 3.5px;
+            color: var
