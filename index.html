@@ -122,7 +122,7 @@
             line-height: 1.55;
         }
 
-        /* Game Center: Vikings vs 49ers */
+        /* Game Center Realtime */
         .game-center {
             background: linear-gradient(165deg, rgba(13, 28, 52, 0.92), rgba(7, 17, 34, 0.96));
             border: 1px solid var(--border-subtle);
@@ -170,14 +170,13 @@
             50% { opacity: 0.4; transform: scale(1.3); }
         }
 
-        .gc-refresh {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #cbd5e1;
-            padding: 6px 12px;
+        .rt-badge {
+            font-size: 0.72rem;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.25);
+            padding: 4px 10px;
             border-radius: 999px;
-            font-size: 0.75rem;
-            cursor: pointer;
         }
 
         .scoreboard {
@@ -263,12 +262,7 @@
             color: #fff;
         }
 
-        .head-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+        .head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
         .photo-counter {
             font-size: 0.82rem;
@@ -298,7 +292,6 @@
 
         .btn-upload-trigger:hover { transform: translateY(-2px); }
 
-        /* Cuadrícula de fotos */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -331,7 +324,7 @@
 
         .empty-state h3 { color: #fff; font-family: 'Montserrat', sans-serif; margin-bottom: 8px; }
 
-        /* Modal de Subida */
+        /* Modales */
         .modal-backdrop {
             position: fixed;
             inset: 0;
@@ -341,7 +334,8 @@
             display: none;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 16px;
+            overflow-y: auto;
         }
 
         .modal-backdrop.open { display: flex; }
@@ -350,48 +344,67 @@
             background: #0d1d36;
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 22px;
-            max-width: 440px;
+            max-width: 460px;
             width: 100%;
-            padding: 26px 22px;
+            padding: 24px 20px;
             text-align: center;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .upload-modal h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 6px; }
-        .upload-modal p { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 18px; }
+        .upload-modal h3 { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; margin-bottom: 6px; }
+        .upload-modal p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
 
         .drop-zone {
             display: block;
             border: 1.5px dashed rgba(0, 136, 232, 0.6);
             border-radius: 16px;
-            padding: 26px 16px;
+            padding: 24px 16px;
             background: rgba(0, 136, 232, 0.06);
             cursor: pointer;
-            margin-bottom: 16px;
-            transition: background 0.2s ease;
+            margin-bottom: 14px;
         }
 
-        .drop-zone:hover { background: rgba(0, 136, 232, 0.12); }
         .drop-zone input { display: none; }
         .file-preview-text { font-size: 0.88rem; color: #cbd5e1; }
-
-        .upload-status {
-            font-size: 0.85rem;
-            margin-bottom: 14px;
-            min-height: 20px;
-            color: var(--gold-soft);
-        }
-
-        .modal-btns { display: flex; gap: 10px; justify-content: center; }
+        .upload-status { font-size: 0.84rem; margin-bottom: 12px; min-height: 18px; color: var(--gold-soft); }
+        .modal-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
         .btn-cancel {
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 999px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             background: transparent;
             color: #cbd5e1;
             cursor: pointer;
             font-weight: 600;
+        }
+
+        .btn-blue {
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            background: var(--base-blue);
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.84rem;
+        }
+
+        /* Formulario Admin Marcador */
+        .admin-form { text-align: left; display: grid; gap: 10px; margin-bottom: 14px; }
+        .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .admin-row-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .admin-label { font-size: 0.72rem; color: var(--text-muted); display: block; margin-bottom: 3px; }
+        .admin-input {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(5, 13, 26, 0.8);
+            color: #fff;
+            font-size: 0.85rem;
         }
 
         /* Lightbox */
@@ -459,6 +472,7 @@
             font-size: 0.84rem;
         }
         .footer-note { margin-bottom: 16px; line-height: 1.5; }
+        .footer-bottom { display: flex; justify-content: center; align-items: center; gap: 10px; }
         .btn-powered {
             display: inline-block;
             padding: 8px 18px;
@@ -469,10 +483,19 @@
             text-decoration: none;
             font-size: 0.82rem;
             letter-spacing: 0.4px;
-            transition: all 0.2s ease;
         }
         .btn-powered strong { color: var(--gold-soft); }
-        .btn-powered:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(212, 175, 55, 0.45); }
+        .btn-admin-gear {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.9rem;
+            opacity: 0.55;
+        }
+        .btn-admin-gear:hover { opacity: 1; color: #fff; }
 
         @media (max-width: 600px) {
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -484,7 +507,6 @@
 <body>
 
     <div class="container">
-        <!-- Encabezado con Logo Banco BASE -->
         <header class="hero">
             <div class="logo-wrap">
                 <img src="logo-base.png" alt="Banco BASE" class="base-logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
@@ -497,50 +519,43 @@
             </p>
         </header>
 
-        <!-- Marcador y Estadísticas en Tiempo Real -->
+        <!-- Marcador Realtime conectado a Supabase -->
         <section class="game-center">
             <div class="gc-header">
                 <div class="gc-status">
                     <span class="live-dot" id="live-dot"></span>
-                    <span id="gc-status-text">NFL México 2026 · Vikings vs. 49ers</span>
+                    <span id="gc-status-text">Conectando en tiempo real...</span>
                 </div>
-                <button class="gc-refresh" id="gc-refresh">↻ Actualizar</button>
+                <span class="rt-badge" id="rt-badge">● Realtime</span>
             </div>
 
             <div class="scoreboard">
                 <div class="team-col">
-                    <img id="away-logo" class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt="Vikings">
-                    <div class="team-name" id="away-name">Vikings</div>
-                    <div class="team-record" id="away-record">Minnesota</div>
+                    <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt="Vikings">
+                    <div class="team-name">Vikings</div>
+                    <div class="team-record">Minnesota</div>
                 </div>
 
                 <div class="score-center">
                     <div class="score-numbers">
-                        <span id="away-score">0</span>
+                        <span id="min-score">0</span>
                         <span class="score-sep">-</span>
-                        <span id="home-score">0</span>
+                        <span id="sf-score">0</span>
                     </div>
                     <div class="game-clock" id="game-clock">CDMX · 2026</div>
                 </div>
 
                 <div class="team-col">
-                    <img id="home-logo" class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="49ers">
-                    <div class="team-name" id="home-name">49ers</div>
-                    <div class="team-record" id="home-record">San Francisco</div>
+                    <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="49ers">
+                    <div class="team-name">49ers</div>
+                    <div class="team-record">San Francisco</div>
                 </div>
             </div>
 
             <div class="quarters-wrap">
                 <table class="quarters-table">
                     <thead>
-                        <tr>
-                            <th>Equipo</th>
-                            <th>Q1</th>
-                            <th>Q2</th>
-                            <th>Q3</th>
-                            <th>Q4</th>
-                            <th>Total</th>
-                        </tr>
+                        <tr><th>Equipo</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Total</th></tr>
                     </thead>
                     <tbody id="quarters-body">
                         <tr><td>MIN</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0</td></tr>
@@ -552,7 +567,7 @@
             <div class="leaders-grid" id="leaders-grid"></div>
         </section>
 
-        <!-- Galería Oficial Interactiva -->
+        <!-- Galería -->
         <div class="section-head">
             <h2>Galería del Evento</h2>
             <div class="head-actions">
@@ -574,25 +589,25 @@
                 Banco BASE · Experiencia Exclusiva NFL México 2026.<br>
                 Toca cualquier fotografía para verla en pantalla completa y descargarla a tu dispositivo.
             </p>
-            <a href="https://five-friends-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-powered">
-                Powered by <strong>Five Friends</strong>
-            </a>
+            <div class="footer-bottom">
+                <a href="https://five-friends-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-powered">
+                    Powered by <strong>Five Friends</strong>
+                </a>
+                <button class="btn-admin-gear" id="open-admin-btn" title="Panel de Marcador">⚙</button>
+            </div>
         </footer>
     </div>
 
-    <!-- Modal para Subir Fotos Directo -->
+    <!-- Modal Subir Fotos -->
     <div class="modal-backdrop" id="upload-modal">
         <div class="upload-modal">
             <h3>Subir Fotos al Álbum</h3>
-            <p>Selecciona una o varias fotos desde tu celular para agregarlas a la galería oficial del evento.</p>
-
+            <p>Selecciona una o varias fotos desde tu celular para agregarlas a la galería oficial.</p>
             <label class="drop-zone" for="file-input">
                 <input type="file" id="file-input" accept="image/*" multiple>
                 <div class="file-preview-text" id="file-preview-text">📁 Toca aquí para elegir tus fotos</div>
             </label>
-
             <div class="upload-status" id="upload-status"></div>
-
             <div class="modal-btns">
                 <button class="btn-cancel" id="close-upload-btn">Cancelar</button>
                 <button class="btn-upload-trigger" id="confirm-upload-btn">Subir ahora</button>
@@ -600,16 +615,72 @@
         </div>
     </div>
 
+    <!-- Modal Admin Marcador (PIN: 2026) -->
+    <div class="modal-backdrop" id="admin-modal">
+        <div class="upload-modal">
+            <h3>Control de Marcador en Vivo</h3>
+            <p>Cualquier cambio se actualiza al instante en todos los celulares conectados.</p>
+
+            <button class="btn-blue" id="sync-espn-btn" style="width:100%; margin-bottom:14px;">⚡ Jalar marcador oficial de ESPN ahora</button>
+
+            <div class="admin-form">
+                <div class="admin-row">
+                    <div>
+                        <label class="admin-label">Estado</label>
+                        <input id="adm-estado" class="admin-input" placeholder="En Vivo · NFL México">
+                    </div>
+                    <div>
+                        <label class="admin-label">Reloj / Cuarto</label>
+                        <input id="adm-reloj" class="admin-input" placeholder="Q2 · 04:15">
+                    </div>
+                </div>
+                <div class="admin-row">
+                    <div>
+                        <label class="admin-label">Puntos Vikings (MIN)</label>
+                        <input id="adm-min" type="number" class="admin-input" value="0">
+                    </div>
+                    <div>
+                        <label class="admin-label">Puntos 49ers (SF)</label>
+                        <input id="adm-sf" type="number" class="admin-input" value="0">
+                    </div>
+                </div>
+                <div>
+                    <label class="admin-label">Cuartos MIN (Q1 / Q2 / Q3 / Q4)</label>
+                    <div class="admin-row-4">
+                        <input id="adm-min-q1" class="admin-input" placeholder="Q1">
+                        <input id="adm-min-q2" class="admin-input" placeholder="Q2">
+                        <input id="adm-min-q3" class="admin-input" placeholder="Q3">
+                        <input id="adm-min-q4" class="admin-input" placeholder="Q4">
+                    </div>
+                </div>
+                <div>
+                    <label class="admin-label">Cuartos SF (Q1 / Q2 / Q3 / Q4)</label>
+                    <div class="admin-row-4">
+                        <input id="adm-sf-q1" class="admin-input" placeholder="Q1">
+                        <input id="adm-sf-q2" class="admin-input" placeholder="Q2">
+                        <input id="adm-sf-q3" class="admin-input" placeholder="Q3">
+                        <input id="adm-sf-q4" class="admin-input" placeholder="Q4">
+                    </div>
+                </div>
+                <label style="font-size:0.82rem; display:flex; align-items:center; gap:8px; color:#cbd5e1;">
+                    <input type="checkbox" id="adm-envivo"> Mostrar punto rojo "EN VIVO"
+                </label>
+            </div>
+
+            <div class="upload-status" id="admin-status"></div>
+            <div class="modal-btns">
+                <button class="btn-cancel" id="close-admin-btn">Cerrar</button>
+                <button class="btn-upload-trigger" id="save-admin-btn">Transmitir en Vivo</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lb-close" id="lb-close" aria-label="Cerrar">✕</button>
-        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
-        <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">›</button>
-
-        <div class="lb-img-wrap">
-            <img id="lb-img" src="" alt="Fotografía del evento">
-        </div>
-
+        <button class="lb-close" id="lb-close">✕</button>
+        <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+        <button class="lb-nav lb-next" id="lb-next">›</button>
+        <div class="lb-img-wrap"><img id="lb-img" src="" alt="Foto"></div>
         <div class="lb-actions">
             <button id="lb-download" class="btn-action btn-download">⬇ Descargar Foto</button>
             <button id="lb-share" class="btn-action btn-share">↗ Compartir</button>
@@ -617,108 +688,177 @@
     </div>
 
     <script>
-        /* ==============================================================
-           CONFIGURACIÓN DE SUPABASE (LISTA Y CONECTADA)
-        ============================================================== */
         const SUPABASE_URL = "https://sirzpsrublygrfzupzoi.supabase.co";
         const SUPABASE_KEY = "sb_publishable_YTlcXsZo-lnjWw5E0axQGg_Y092_nGx";
         const BUCKET_NAME = "fotos-nfl";
+        const ADMIN_PIN = "2026";
 
         const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         /* ==============================================================
-           1. MARCADOR EN TIEMPO REAL: VIKINGS (MIN) VS 49ERS (SF)
+           1. MARCADOR EN TIEMPO REAL CON SUPABASE REALTIME
         ============================================================== */
-        async function fetchLiveScore() {
-            const statusText = document.getElementById('gc-status-text');
-            const liveDot = document.getElementById('live-dot');
+        let currentScoreData = null;
 
+        function renderScoreboard(row) {
+            if (!row) return;
+            currentScoreData = row;
+
+            document.getElementById('gc-status-text').textContent = row.estado || 'Vikings vs. 49ers · NFL México';
+            document.getElementById('live-dot').classList.toggle('active', !!row.en_vivo);
+            document.getElementById('min-score').textContent = row.min_score ?? 0;
+            document.getElementById('sf-score').textContent = row.sf_score ?? 0;
+            document.getElementById('game-clock').textContent = row.reloj || 'CDMX · 2026';
+
+            document.getElementById('quarters-body').innerHTML = `
+                <tr>
+                    <td>MIN</td>
+                    <td>${row.min_q1 ?? '-'}</td><td>${row.min_q2 ?? '-'}</td><td>${row.min_q3 ?? '-'}</td><td>${row.min_q4 ?? '-'}</td>
+                    <td>${row.min_score ?? 0}</td>
+                </tr>
+                <tr>
+                    <td>SF</td>
+                    <td>${row.sf_q1 ?? '-'}</td><td>${row.sf_q2 ?? '-'}</td><td>${row.sf_q3 ?? '-'}</td><td>${row.sf_q4 ?? '-'}</td>
+                    <td>${row.sf_score ?? 0}</td>
+                </tr>
+            `;
+
+            document.getElementById('leaders-grid').innerHTML = `
+                <div class="leader-card">
+                    <span class="leader-cat">Líder en Pase</span>
+                    <span class="leader-name">${row.lider_pase_nombre || 'Por iniciar'}</span>
+                    <span class="leader-stat">${row.lider_pase_stat || '--'}</span>
+                </div>
+                <div class="leader-card">
+                    <span class="leader-cat">Líder en Carrera</span>
+                    <span class="leader-name">${row.lider_carrera_nombre || 'Por iniciar'}</span>
+                    <span class="leader-stat">${row.lider_carrera_stat || '--'}</span>
+                </div>
+                <div class="leader-card">
+                    <span class="leader-cat">Líder en Recepción</span>
+                    <span class="leader-name">${row.lider_recepcion_nombre || 'Por iniciar'}</span>
+                    <span class="leader-stat">${row.lider_recepcion_stat || '--'}</span>
+                </div>
+            `;
+        }
+
+        async function initRealtimeScoreboard() {
+            const { data } = await sb.from('marcador').select('*').eq('id', 1).single();
+            if (data) renderScoreboard(data);
+
+            // Suscripción en vivo (WebSocket)
+            sb.channel('marcador-vivo')
+                .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'marcador', filter: 'id=eq.1' }, (payload) => {
+                    renderScoreboard(payload.new);
+                })
+                .subscribe((status) => {
+                    const badge = document.getElementById('rt-badge');
+                    if (status === 'SUBSCRIBED') badge.textContent = '● En Vivo (Realtime)';
+                });
+        }
+
+        /* ==============================================================
+           PANEL ADMIN (EDITAR MANUAL O JALAR DE ESPN -> SUPABASE)
+        ============================================================== */
+        const adminModal = document.getElementById('admin-modal');
+        const adminStatus = document.getElementById('admin-status');
+
+        document.getElementById('open-admin-btn').addEventListener('click', () => {
+            const pin = prompt('Ingresa el PIN de administrador:');
+            if (pin !== ADMIN_PIN) return;
+            if (currentScoreData) {
+                document.getElementById('adm-estado').value = currentScoreData.estado || '';
+                document.getElementById('adm-reloj').value = currentScoreData.reloj || '';
+                document.getElementById('adm-min').value = currentScoreData.min_score ?? 0;
+                document.getElementById('adm-sf').value = currentScoreData.sf_score ?? 0;
+                document.getElementById('adm-min-q1').value = currentScoreData.min_q1 || '-';
+                document.getElementById('adm-min-q2').value = currentScoreData.min_q2 || '-';
+                document.getElementById('adm-min-q3').value = currentScoreData.min_q3 || '-';
+                document.getElementById('adm-min-q4').value = currentScoreData.min_q4 || '-';
+                document.getElementById('adm-sf-q1').value = currentScoreData.sf_q1 || '-';
+                document.getElementById('adm-sf-q2').value = currentScoreData.sf_q2 || '-';
+                document.getElementById('adm-sf-q3').value = currentScoreData.sf_q3 || '-';
+                document.getElementById('adm-sf-q4').value = currentScoreData.sf_q4 || '-';
+                document.getElementById('adm-envivo').checked = !!currentScoreData.en_vivo;
+            }
+            adminStatus.textContent = '';
+            adminModal.classList.add('open');
+        });
+
+        document.getElementById('close-admin-btn').addEventListener('click', () => adminModal.classList.remove('open'));
+
+        document.getElementById('save-admin-btn').addEventListener('click', async () => {
+            adminStatus.textContent = 'Transmitiendo...';
+            const payload = {
+                estado: document.getElementById('adm-estado').value,
+                reloj: document.getElementById('adm-reloj').value,
+                min_score: Number(document.getElementById('adm-min').value) || 0,
+                sf_score: Number(document.getElementById('adm-sf').value) || 0,
+                min_q1: document.getElementById('adm-min-q1').value || '-',
+                min_q2: document.getElementById('adm-min-q2').value || '-',
+                min_q3: document.getElementById('adm-min-q3').value || '-',
+                min_q4: document.getElementById('adm-min-q4').value || '-',
+                sf_q1: document.getElementById('adm-sf-q1').value || '-',
+                sf_q2: document.getElementById('adm-sf-q2').value || '-',
+                sf_q3: document.getElementById('adm-sf-q3').value || '-',
+                sf_q4: document.getElementById('adm-sf-q4').value || '-',
+                en_vivo: document.getElementById('adm-envivo').checked,
+                updated_at: new Date().toISOString()
+            };
+            const { error } = await sb.from('marcador').update(payload).eq('id', 1);
+            adminStatus.textContent = error ? 'Error al guardar.' : '✓ ¡Actualizado en todos los celulares!';
+        });
+
+        document.getElementById('sync-espn-btn').addEventListener('click', async () => {
+            adminStatus.textContent = 'Consultando ESPN...';
             try {
                 const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
                 const data = await res.json();
-                const events = data.events || [];
-
-                let game = events.find(ev => {
+                const game = (data.events || []).find(ev => {
                     const teams = ev.competitions?.[0]?.competitors?.map(c => c.team?.abbreviation?.toUpperCase()) || [];
                     return teams.includes('MIN') && teams.includes('SF');
                 });
-
                 if (!game) {
-                    statusText.textContent = "Próximo Partido · Vikings vs. 49ers";
+                    adminStatus.textContent = 'El partido aún no aparece en la jornada activa de ESPN.';
                     return;
                 }
-
                 const comp = game.competitions[0];
-                const home = comp.competitors.find(c => c.homeAway === 'home');
-                const away = comp.competitors.find(c => c.homeAway === 'away');
+                const min = comp.competitors.find(c => c.team.abbreviation === 'MIN');
+                const sf = comp.competitors.find(c => c.team.abbreviation === 'SF');
                 const state = comp.status?.type?.state;
-                const detail = comp.status?.type?.shortDetail || 'Programado';
+                const getQ = (t, i) => String(t.linescores?.[i]?.value ?? '-');
+                const getLeader = (name) => comp.leaders?.find(l => l.name === name)?.leaders?.[0];
 
-                if (state === 'in') {
-                    liveDot.classList.add('active');
-                    statusText.textContent = "En Vivo · Estadísticas Oficiales";
-                } else if (state === 'post') {
-                    liveDot.classList.remove('active');
-                    statusText.textContent = "Marcador Final · NFL México";
-                } else {
-                    liveDot.classList.remove('active');
-                    statusText.textContent = "Previo del Partido · NFL México";
-                }
+                const p = getLeader('passingYards');
+                const r = getLeader('rushingYards');
+                const rec = getLeader('receivingYards');
 
-                document.getElementById('away-logo').src = away.team.logo;
-                document.getElementById('away-name').textContent = away.team.shortDisplayName;
-                document.getElementById('away-record').textContent = away.records?.[0]?.summary || '';
-                document.getElementById('away-score').textContent = away.score || '0';
-
-                document.getElementById('home-logo').src = home.team.logo;
-                document.getElementById('home-name').textContent = home.team.shortDisplayName;
-                document.getElementById('home-record').textContent = home.records?.[0]?.summary || '';
-                document.getElementById('home-score').textContent = home.score || '0';
-                document.getElementById('game-clock').textContent = detail;
-
-                const getQ = (team, idx) => team.linescores?.[idx]?.value ?? '-';
-                document.getElementById('quarters-body').innerHTML = `
-                    <tr>
-                        <td>${away.team.abbreviation}</td>
-                        <td>${getQ(away, 0)}</td><td>${getQ(away, 1)}</td><td>${getQ(away, 2)}</td><td>${getQ(away, 3)}</td>
-                        <td>${away.score || '0'}</td>
-                    </tr>
-                    <tr>
-                        <td>${home.team.abbreviation}</td>
-                        <td>${getQ(home, 0)}</td><td>${getQ(home, 1)}</td><td>${getQ(home, 2)}</td><td>${getQ(home, 3)}</td>
-                        <td>${home.score || '0'}</td>
-                    </tr>
-                `;
-
-                const leadersGrid = document.getElementById('leaders-grid');
-                const catNames = {
-                    passingYards: 'Líder en Pase',
-                    rushingYards: 'Líder en Carrera',
-                    receivingYards: 'Líder en Recepción'
+                const payload = {
+                    estado: state === 'in' ? 'En Vivo · NFL México' : (state === 'post' ? 'Marcador Final · NFL México' : 'Previo · NFL México'),
+                    en_vivo: state === 'in',
+                    reloj: comp.status?.type?.shortDetail || 'NFL México',
+                    min_score: Number(min.score) || 0,
+                    sf_score: Number(sf.score) || 0,
+                    min_q1: getQ(min, 0), min_q2: getQ(min, 1), min_q3: getQ(min, 2), min_q4: getQ(min, 3),
+                    sf_q1: getQ(sf, 0), sf_q2: getQ(sf, 1), sf_q3: getQ(sf, 2), sf_q4: getQ(sf, 3),
+                    lider_pase_nombre: p?.athlete?.shortName || 'Por iniciar',
+                    lider_pase_stat: p?.displayValue || '--',
+                    lider_carrera_nombre: r?.athlete?.shortName || 'Por iniciar',
+                    lider_carrera_stat: r?.displayValue || '--',
+                    lider_recepcion_nombre: rec?.athlete?.shortName || 'Por iniciar',
+                    lider_recepcion_stat: rec?.displayValue || '--',
+                    updated_at: new Date().toISOString()
                 };
-                leadersGrid.innerHTML = '';
-                (comp.leaders || []).slice(0, 3).forEach(cat => {
-                    const top = cat.leaders?.[0];
-                    if (!top) return;
-                    leadersGrid.innerHTML += `
-                        <div class="leader-card">
-                            <span class="leader-cat">${catNames[cat.name] || cat.displayName}</span>
-                            <span class="leader-name">${top.athlete?.shortName || 'Jugador'}</span>
-                            <span class="leader-stat">${top.displayValue || ''}</span>
-                        </div>
-                    `;
-                });
-            } catch (err) {
-                statusText.textContent = "Vikings vs. 49ers · NFL México 2026";
-            }
-        }
 
-        document.getElementById('gc-refresh').addEventListener('click', fetchLiveScore);
-        fetchLiveScore();
-        setInterval(fetchLiveScore, 45000);
+                await sb.from('marcador').update(payload).eq('id', 1);
+                adminStatus.textContent = '✓ ¡Sincronizado desde ESPN en tiempo real!';
+            } catch {
+                adminStatus.textContent = 'No se pudo conectar con ESPN.';
+            }
+        });
 
         /* ==============================================================
-           2. GALERÍA Y SUBIDA DIRECTA CON SUPABASE STORAGE
+           2. GALERÍA Y SUBIDA DIRECTA
         ============================================================== */
         const galleryEl = document.getElementById('gallery');
         const photoCountEl = document.getElementById('photo-count');
@@ -732,7 +872,7 @@
             });
 
             if (error) {
-                galleryEl.innerHTML = `<div class="empty-state"><h3>Error al cargar</h3><p>Revisa que el bucket "${BUCKET_NAME}" exista, sea público y tenga las políticas SQL activas.</p></div>`;
+                galleryEl.innerHTML = `<div class="empty-state"><h3>Error al cargar</h3><p>Revisa el bucket "${BUCKET_NAME}" en Supabase.</p></div>`;
                 return;
             }
 
@@ -745,12 +885,7 @@
             photoCountEl.textContent = photosList.length;
 
             if (photosList.length === 0) {
-                galleryEl.innerHTML = `
-                    <div class="empty-state">
-                        <h3>Aún no hay fotografías</h3>
-                        <p>Sé el primero en subir un recuerdo tocando el botón "Subir Fotos".</p>
-                    </div>
-                `;
+                galleryEl.innerHTML = `<div class="empty-state"><h3>Aún no hay fotografías</h3><p>Sé el primero en subir un recuerdo tocando "Subir Fotos".</p></div>`;
                 return;
             }
 
@@ -764,7 +899,6 @@
             });
         }
 
-        // Modal de subida
         const uploadModal = document.getElementById('upload-modal');
         const fileInput = document.getElementById('file-input');
         const filePreviewText = document.getElementById('file-preview-text');
@@ -777,54 +911,38 @@
             filePreviewText.textContent = '📁 Toca aquí para elegir tus fotos';
             uploadModal.classList.add('open');
         });
-
-        document.getElementById('close-upload-btn').addEventListener('click', () => {
-            uploadModal.classList.remove('open');
-        });
-
+        document.getElementById('close-upload-btn').addEventListener('click', () => uploadModal.classList.remove('open'));
         fileInput.addEventListener('change', () => {
             const count = fileInput.files.length;
-            filePreviewText.textContent = count > 0
-                ? `✓ ${count} foto(s) seleccionada(s)`
-                : '📁 Toca aquí para elegir tus fotos';
+            filePreviewText.textContent = count > 0 ? `✓ ${count} foto(s) seleccionada(s)` : '📁 Toca aquí para elegir tus fotos';
         });
 
         confirmUploadBtn.addEventListener('click', async () => {
             const files = fileInput.files;
-            if (!files.length) {
-                uploadStatus.textContent = 'Selecciona al menos una foto primero.';
-                return;
-            }
-
+            if (!files.length) { uploadStatus.textContent = 'Selecciona al menos una foto.'; return; }
             confirmUploadBtn.disabled = true;
             confirmUploadBtn.textContent = 'Subiendo...';
-
             let uploaded = 0;
             for (const file of files) {
                 uploadStatus.textContent = `Subiendo ${uploaded + 1} de ${files.length}...`;
                 const ext = file.name.split('.').pop() || 'jpg';
                 const fileName = `nfl-${Date.now()}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
-                const { error } = await sb.storage.from(BUCKET_NAME).upload(fileName, file, {
-                    cacheControl: '3600',
-                    upsert: false
-                });
+                const { error } = await sb.storage.from(BUCKET_NAME).upload(fileName, file, { cacheControl: '3600', upsert: false });
                 if (!error) uploaded++;
             }
-
             confirmUploadBtn.disabled = false;
             confirmUploadBtn.textContent = 'Subir ahora';
-
             if (uploaded > 0) {
-                uploadStatus.textContent = `✓ ¡${uploaded} foto(s) agregada(s) al álbum!`;
+                uploadStatus.textContent = `✓ ¡${uploaded} foto(s) agregada(s)!`;
                 await loadGallery();
-                setTimeout(() => uploadModal.classList.remove('open'), 1000);
+                setTimeout(() => uploadModal.classList.remove('open'), 900);
             } else {
-                uploadStatus.textContent = 'No se pudo subir. Revisa las políticas del bucket en Supabase.';
+                uploadStatus.textContent = 'No se pudo subir. Revisa las políticas del bucket.';
             }
         });
 
         /* ==============================================================
-           3. VISOR LIGHTBOX + DESCARGA REAL EN CELULAR
+           3. LIGHTBOX + DESCARGA REAL
         ============================================================== */
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lb-img');
@@ -837,7 +955,6 @@
             lightbox.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             lightbox.classList.remove('open');
             document.body.style.overflow = '';
@@ -868,20 +985,13 @@
                 a.click();
                 a.remove();
                 URL.revokeObjectURL(blobUrl);
-            } catch {
-                window.open(photo.url, '_blank');
-            }
+            } catch { window.open(photo.url, '_blank'); }
             lbDownload.textContent = '⬇ Descargar Foto';
         });
 
         lbShare.addEventListener('click', async () => {
             if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: 'Banco BASE · Vikings vs 49ers México 2026',
-                        url: window.location.href
-                    });
-                } catch {}
+                try { await navigator.share({ title: 'Banco BASE · Vikings vs 49ers México 2026', url: window.location.href }); } catch {}
             } else {
                 navigator.clipboard.writeText(window.location.href);
                 lbShare.textContent = '✓ Link copiado';
@@ -889,6 +999,7 @@
             }
         });
 
+        initRealtimeScoreboard();
         loadGallery();
     </script>
 </body>
